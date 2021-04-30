@@ -1,0 +1,5 @@
+测试yml文件，配置项同时存在时，优先级不如properties，所以同时存在时，需要去掉properties
+server:
+  port: 9090
+  servlet:
+    context-path: /01-springboot-web

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var socket;
+        if (typeof (WebSocket) == "undefined") {
+            console.log("遗憾:您的浏览器不支持WebSocket");
+        } else {
+            socket = new WebSocket("ws://localhost:8888/ws/asset");
+
+            // 打开连接事件
+            socket.onopen = function () {
+                console.log("Socket 已打开")
+                socket.send("消息发送测试(From Client)");
+            }
+            // 收到消息事件
+            socket.onmessage = function (msg) {
+                document.getElementById('message').innerHTML += msg.data + '<br>';
+            }
+            // 连接关闭事件
+            socket.onclose = function () {
+                console.log("Socket已关闭");
+            }
+            // 发生错误事件
+            socket.onerror = function () {
+                console.log("Socket发生了错误");
+            }
+            // 窗口关闭时,关闭连接
+
+        }
+
+        function sendToServer() {
+            let value = document.getElementById("text").value;
+            socket.send(value);
+        }
+
+        function closeWebSocket() {
+            socket.close();
+        }
+    </script>
+</head>
+<body>
+<h3>请输入要发给服务器的内容</h3>
+<label for="text">输入发送信息</label><input id="text" type="text"/>
+<button onclick="sendToServer()">发送服务器消息</button>
+<button onclick="closeWebSocket()">关闭连接</button>
+<br>
+信息:<span id="message"></span>
+</body>
+</html>

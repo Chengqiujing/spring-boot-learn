@@ -1,0 +1,208 @@
+= swagger API文档
+
+
+[[_overview]]
+== 概览
+简单优雅的restful风格
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== 许可信息
+[%hardbreaks]
+__服务条款__ : http://www.btbullet.com
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8080
+__基础路径__ : /
+
+
+=== 标签
+
+* 测试接口 : Restful Controller
+
+
+
+
+[[_paths]]
+== 资源
+
+[[_cba1afa8756152014d0034b3b9dc688b]]
+=== 测试接口
+Restful Controller
+
+
+[[_restusingpost]]
+==== 测试rest
+....
+POST /rest/testRestful
+....
+
+
+===== 说明
+获取restEntity
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**restEntity** +
+__必填__|测试entity|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|成功|<<_restentity,RestEntity>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/testRestful
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "restEntity" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "age" : 19,
+  "name" : "我是rest"
+}
+----
+
+
+[[_rest2usingpost]]
+==== 获取人员信息
+....
+POST /rest/testRestful2
+....
+
+
+===== 说明
+获取人员的年龄,姓名
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**age** +
+__必填__|年龄|<<_integer,Integer>>
+|**Body**|**name** +
+__必填__|姓名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|成功|<<_restentity,RestEntity>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/testRestful2
+----
+
+
+====== 请求 body
+[source,json]
+----
+{ }
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "age" : 19,
+  "name" : "我是rest"
+}
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_restentity]]
+=== RestEntity
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**age** +
+__可选__|age +
+**样例** : `19`|integer (int32)
+|**name** +
+__可选__|name +
+**样例** : `"我是rest"`|string
+|===
+
+
+
+
+
