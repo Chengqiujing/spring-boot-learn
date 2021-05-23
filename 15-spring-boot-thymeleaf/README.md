@@ -173,4 +173,7 @@ th:text="|当前是第${sex}页，共${sex}页|"
 </html>
 ```
 
+还有一部分内容是关于thymeleaf公共布局的，由于内容较多，这里暂时先不整理请移步网络博客
+[Thymeleaf 模板布局 th:fragment、th:replace、th:insert、th:remove](https://blog.csdn.net/wangmx1993328/article/details/84747497)
+
 
